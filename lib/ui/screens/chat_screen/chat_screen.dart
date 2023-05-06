@@ -67,8 +67,10 @@ class _ItemMessage extends StatelessWidget {
               ? CrossAxisAlignment.end
               : CrossAxisAlignment.start,
           children: [
+
             if (message.linkImage != null)
               _ImageMessage(url: message.linkImage!),
+
             Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
@@ -96,8 +98,8 @@ class _ImageMessage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Column(
       children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(10.0),
+        Card(
+          clipBehavior: Clip.hardEdge,
           child: Image.network(
             url,
             loadingBuilder: (context, child, loadingProgress) {
